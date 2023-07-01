@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-[#FCF1F1] dark:bg-[#474E68] py-8 h-full">
+    <div class="flex justify-center">
+        <p class="text-4xl md:text-5xl text-black dark:text-white mr-5 mt-5 text-center text-extrabold">Agents</p>
+    </div>
+
+    
+    <div class="flex justify-items-left mx-10 border-b-2 border-gray-200 dark:border-green-200 border-transparent-50 pb-2 space-x-2">
+        <a href="{% url 'agents:agent-create' %}">
+            <button type="button" class="inline-block px-6 pt-2 mt-6 pb-2 bg-blue-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out flex align-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                </svg>
+                Add a new Agent
+            </button>
+        </a>
+    </div>
+
+
+    <div class="flex justify-items-center">
+        <ul role="list" class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {% for agent in agents %}
+                <div class="block w-full h-full rounded">
+                    <a href="{% url 'agents:agent-detail' agent.pk %}" class="mt-4 text-center bg-gray-100 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
+                        <li class="px-6 py-6 mb-2 mt-2">
+                            {% if agent.user.photo %}
+                                <img src="{{ agent.user.photo.url }}" alt="Profile picture" style="width: 150px; height: 150px; border-radius: 50%;">
+                            {% else %}
+                                <img src="{% static 'images/UserPhoto.jpg' %}" alt="Profile picture" style="width: 150px; height: 150px; border-radius: 50%;">
+                            {% endif %}
+                            </circle>
+                            <div class="ml-3 overflow-hidden">
+                                <p class="text-sm font-medium text-black dark:text-white">
+                                    <h3>{{ agent.user.first_name }} {{ agent.user.last_name }}</h3>
+                                </p>
+                                <p class="text-sm text-gray-700 dark:text-gray-200 truncate">{{ agent }}</p>
+                            </div>
+                        </li>
+                    </a>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}

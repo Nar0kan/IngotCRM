@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-12 xl:py-24">
+    <div>
+        <h1 class="block sm:text-3xl text-2xl font-extrabold mb-1 mt-5 text-center text-black dark:text-white">
+            You can buy the '{{level_name}}' subscription for only {{price}}$ right now
+        </h1>
+        <br/>
+        {% comment %} {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li class="text-center font-semibold uppercase text-black dark:text-white">
+                    {{message}}
+                </li>
+            {% endfor %}
+            </ul>
+        
+        {% endif %} {% endcomment %}
+        <br/>
+        <hr/>
+    </div>
+
+    <div class="flex max-w-lg mx-auto justify-center align-center mt-12 p-6 bg-[#FCF1F1] border border-gray-200 rounded-lg shadow dark:bg-[#474E68] dark:border-gray-800">
+        {{ form.render }}
+    </div>
+</section>
+{% endblock content %}

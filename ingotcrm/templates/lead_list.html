@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="bg-[#FCF1F1] dark:bg-[#474E68] py-12 h-full">
+    <section>
+      <div class="flex justify-center mb-10 mt-5">
+        <p class="text-5xl text-extrabold mr-5 mt-5 text-black dark:text-white">Leads</p>
+      </div>
+    </section>
+
+    <section class="mx-10 py-6">
+      <div class="flex grid grid-cols-6 gap-2 border-b-4 border-yellow-300 border-transparent-90 space-x-2">
+        <div class="col-start-2 col-end-6 sm:col-start-1 sm:col-end-4 mb-2">
+          <a  href="{% url 'leads:lead-create' %}"><button type="button" class="inline-block px-6 pt-2 pb-2 bg-blue-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex align-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+            </svg>
+            Add a new Lead
+          </button></a>
+        </div>
+        {% if unassigned_leads.exists %}
+          <div class="col-start-1 col-end-5 md:col-start-5 md:col-end-8 lg:col-start-6 lg:col-end-9 col-span-2 mb-2">
+            <button data-dropdown-toggle="dropdownUnassignedLeads" id="dropdownUnassignedLeadsButton" data-dropdown-toggle="dropdown" class="block flex justify-center text-xl truncate font-medium py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 text-black dark:text-gray-100 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent inline-flex" type="button">
+              Unassigned leads
+              <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="dropdownUnassignedLeads" class="z-10 hidden hover:backdrop-blur-lg bg-white divide-y divide-gray-100 rounded-lg shadow w-half dark:bg-gray-700 rounded">
+              <ul class="py-2 p-6 divide-y divide-slate-200 text-sm text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-700" aria-labelledby="dropdownUnassignedLeadsButton">
+                {% for lead in unassigned_leads %}
+                <div class="" data-carousel="static">
+                  <a href="{% url 'leads:assign-agent' lead.pk %}">
+                    <li class="flex mt-3 mb-3 py-4 first:pt-0 last:pb-0">
+                      <img src="{% static 'images\UserPhoto.jpg' %}" class="h-12 w-12" alt="Standart profile photo" style="border-radius: 50%;"/>
+                      <div class="ml-3 overflow-hidden">
+                        <p class="text-sm font-medium text-slate-900">
+                            <h3>{{ lead.first_name }} {{ lead.last_name }}</h3>
+                        </p>
+                        <h5 class="ml-12 text-sm text-slate-500 dark:text-slate-300">Created at {{ lead.date_added }}</h5>
+                      </div>
+                    </li>
+                  </a>
+                </div>
+                </hr>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="p-6 divide-y divide-slate-200 mt-4">
+      <ul role="list" class="">
+        {% for lead in leads %}
+          <li class="flex py-4 first:pt-0 last:pb-0">
+            <a href="{% url 'leads:lead-detail' lead.pk %}">
+              {% if lead.photo %}
+                <img src="{{ lead.photo.url }}" alt="{{lead.first_name}} {{lead.last_name}} profile" class="h-12 w-12" alt="Custom profile photo" style="border-radius: 50%;"/>
+              {% else %}
+                <img src="{% static 'images\UserPhoto.jpg' %}" alt="Standart static profile" alt="Standart profile photo" class="h-12 w-12" style="border-radius: 50%;"/>
+              {% endif %}
+            </a>
+            <div class="ml-3 overflow-hidden">
+              <p class="text-sm font-medium text-slate-900">
+                <a href="{% url 'leads:lead-detail' lead.pk %}">
+                  <h3>{{ lead.first_name }} {{ lead.last_name }}</h3>
+                </a>
+              </p>
+              <p class="text-sm text-slate-500 truncate">
+              <div class="flex justify-between">
+                  <div>
+                    
+                  </div>
+                  <div>
+                    <button id="email_button" class="underline" onclick="copyEmailToClipboard()">
+                      {{ lead.email }}
+                    </button>
+                  </div>
+                  <div id="copyAlert" class="flex ml-4 pr-2 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+                    <div class="ml-3 text-sm font-small">
+                      The email was copied successfully.
+                    </div>
+                  </div>
+              </div>
+              </p>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <br/>
+    </section>
+
+    <section class="my-5">
+      <div class="flex justify-center">
+        {% if is_paginated %}
+          <nav aria-label="Page navigation">
+            <ul class="flex list-style-none">
+              {% if page_obj.has_previous %}
+                <li class="page-item"><a
+                  class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 dark:text-gray-200 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+                  href="{% url 'leads:lead-list' %}?page={{ page_obj.previous_page_number }}">Previous</a></li>
+              {% else %}
+                <li class="page-item disabled"><a
+                  class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-500 dark:text-gray-200 pointer-events-none focus:shadow-none"
+                  href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
+              {% endif %}
+              {% for page_num in paginator.page_range %}
+                {% if page_num == page_obj.number %}
+                  <li class="page-item"><a
+                    class="page-link relative block py-1.5 px-3 border-2 border-color-cyan-900 bg-transparent outline-none transition-all duration-300 rounded text-blue-600 hover:bg-gray-200 focus:shadow-none"
+                    href="{% url 'leads:lead-list' %}?page={{ page_num }}">{{ page_num }}</a></li>
+                {% else %}
+                  <li class="page-item"><a
+                    class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 dark:text-gray-200 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+                    href="{% url 'leads:lead-list' %}?page={{ page_num }}">{{ page_num }}</a></li>
+                {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next %}
+                <li class="page-item"><a
+                  class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 dark:text-gray-200 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+                  href="{% url 'leads:lead-list' %}?page={{ page_obj.next_page_number }}">Next</a></li>
+              {% else %}
+                <li class="page-item disabled"><a
+                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-500 dark:text-gray-200 pointer-events-none focus:shadow-none"
+                href="#" tabindex="-1" aria-disabled="true">Next</a></li>
+              {% endif %}
+            </ul>
+          </nav>
+        {% endif %}
+      </div>
+    </section>
+  </div>
+
+{% endblock content %}
+
+
+{% block head %}
+<style>
+	#copyAlert {
+		display: none;
+	}
+</style>
+{% endblock head %}
+
+
+{% block js %}
+  <script>
+    function copyEmailToClipboard() {
+      // Get the email button element
+      var emailButton = document.getElementById("email_button");
+      
+      // Create a temporary input element
+      var tempInput = document.createElement("input");
+      
+      // Set the value of the input element to the email button text
+      tempInput.value = emailButton.innerText;
+      
+      // Add the input element to the DOM
+      document.body.appendChild(tempInput);
+      
+      // Select the input element
+      tempInput.select();
+      
+      // Copy the selected text to the clipboard
+      document.execCommand("copy");
+      
+      // Remove the input element from the DOM
+      document.body.removeChild(tempInput);
+      
+      // Show a confirmation message to the user
+      // alert("Email address copied to clipboard!");
+      //document.querySelector('#copyAlert').style.display = 'block';
+
+      // Get the element to show
+      var myElement = document.getElementById('copyAlert');
+
+      // Show the element
+      myElement.style.display = 'block';
+
+      // Hide the element after 3 seconds
+      setTimeout(function() {
+        myElement.style.display = 'none';
+      }, 2000);
+    }
+
+
+		$(document).ready(function(){
+			$('#email_button').click(function(){
+				$('#copyAlert').show();
+			});
+		});
+  </script>
+{% endblock js %}

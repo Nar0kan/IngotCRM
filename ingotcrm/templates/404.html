@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Page not found!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <body>
+        <section class="bg-white dark:bg-gray-900 ">
+            <div class="container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12">
+                <div class="wf-ull lg:w-1/2">
+                    <p class="text-sm font-medium text-blue-500 dark:text-blue-400">404 error</p>
+                    <h1 class="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">Page not found</h1>
+                    <p class="mt-4 text-gray-500 dark:text-gray-400">Sorry, the page you are looking for doesn't exist. Here are some helpful links:</p>
+
+                    <div class="flex items-center mt-6 gap-x-3">
+                        <a href="{% url 'landing-page' %}">
+                            <button class="w-full flex justify-center px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+                                Take me home
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative w-full mt-8 lg:w-1/2 lg:mt-0">
+                    <img class=" w-full lg:h-[32rem] h-80 md:h-96 rounded-lg object-cover" src="https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="404">
+                    Photo by <a href="https://www.pexels.com/photo/scenic-view-of-mountains-during-dawn-1261728/">Stephan Seeber</a>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

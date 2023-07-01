@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-12 xl:py-24">
+    <div>
+        <h1 class="block sm:text-4xl text-2xl font-extrabold mb-1 mt-5 text-center text-black dark:text-white">
+            Order was <span class="text-red-800 dark:text-red-400">failed</span>! Try again later...
+        </h1>
+        <br/>
+        <br/>
+        <p class="text-xl font-semibold mb-1 mt-5 text-center text-black dark:text-white">
+            <a href="{% url 'leads:lead-list' %}">Go to the Leads list page ...</a>
+        </p>
+        <br/>
+    </div>
+</section>
+{% endblock content %}

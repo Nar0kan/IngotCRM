@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-[#FCF1F1] font-semibold dark:text-white border-gray-200 dark:bg-[#474E68] dark:border-gray-700 round">
+  <!-- Section: Introduction -->
+    <section class="text-gray-600 body-font font-extrabold tracking-tight leading-none">
+      <div class="bg-gradient-to-b from-[#FFD5CD] dark:from-[#50577A] to-[#FCF1F1] dark:to-[#474E68] backdrop-opacity-60 backdrop-blur-sm backdrop-brightness-50 rounded">
+        <div class="container mx-auto flex px-5 py-6 items-center justify-center flex-col">
+          <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-4 border border-2 object-cover object-center rounded" alt="home.jpg" src="{% static 'images/home.jpg' %}">
+          <div class="text-center lg:w-2/3 w-full">
+            <h1 class="title-font mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+            Ingot CRM
+            </h1>
+            <p class="mb-4 leading-relaxed">
+              <h1 class="text-4xl font-bold tracking-tight leading-none text-gray-800 md:text-2xl lg:text-3xl dark:text-white">Built to help you to manage the leads.</h1>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Section: Why is it so great? -->
+    <div class="container my-8 px-6 mx-auto">
+        <section class="mb-8 text-gray-800 text-center">
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-96 overflow-hidden rounded-lg md:h-84">
+                <!-- Item 1 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                      <div class="rounded-lg shadow-lg h-full block bg-[#F5EBE0] font-semibold dark:text-white border-gray-200 dark:bg-[#6B728E] dark:border-gray-700">
+                        <div class="flex justify-center">
+                              <div class="p-4 bg-blue-600 rounded-full shadow-lg inline-block mt-8">
+                                <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                  <path fill="currentColor"
+                                    d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z">
+                                  </path>
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="p-6">
+                              <h5 class="text-lg font-semibold mb-4">Support 24/7</h5>
+                              <p class="text-left">
+                                We can ensure that our customers get 24/7 online support. That includes technical issues and being updated with important information. Only quality service, good communication, and understandings between us.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                  <!--
+                  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                  -->
+                </div>
+                <!-- Item 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <div class="rounded-lg shadow-lg h-full block bg-[#F5EBE0] font-semibold dark:text-white border-gray-200 dark:bg-[#6B728E] dark:border-gray-700">
+                      <div class="flex justify-center">
+                        <div class="p-4 bg-blue-600 rounded-full shadow-lg inline-block mt-8">
+                          <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor"
+                              d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z">
+                            </path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="p-6">
+                        <h5 class="text-lg font-semibold mb-4">Safe and Solid</h5>
+                        <p class="text-left">
+                          We are using the best technologies to prevent users from any data losses. The site is designed like a watch, so we know that everything is fine when it is. Otherwise - we take any hints and propositions from our customers to create a better workplace.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <div class="rounded-lg shadow-lg h-full block bg-[#F5EBE0] font-semibold dark:text-white border-gray-200 dark:bg-[#6B728E] dark:border-gray-700">
+                      <div class="flex justify-center">
+                        <div class="p-4 bg-blue-600 rounded-full shadow-lg inline-block mt-8">
+                          <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor"
+                              d="M505.12019,19.09375c-1.18945-5.53125-6.65819-11-12.207-12.1875C460.716,0,435.507,0,410.40747,0,307.17523,0,245.26909,55.20312,199.05238,128H94.83772c-16.34763.01562-35.55658,11.875-42.88664,26.48438L2.51562,253.29688A28.4,28.4,0,0,0,0,264a24.00867,24.00867,0,0,0,24.00582,24H127.81618l-22.47457,22.46875c-11.36521,11.36133-12.99607,32.25781,0,45.25L156.24582,406.625c11.15623,11.1875,32.15619,13.15625,45.27726,0l22.47457-22.46875V488a24.00867,24.00867,0,0,0,24.00581,24,28.55934,28.55934,0,0,0,10.707-2.51562l98.72834-49.39063c14.62888-7.29687,26.50776-26.5,26.50776-42.85937V312.79688c72.59753-46.3125,128.03493-108.40626,128.03493-211.09376C512.07526,76.5,512.07526,51.29688,505.12019,19.09375ZM384.04033,168A40,40,0,1,1,424.05,128,40.02322,40.02322,0,0,1,384.04033,168Z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="p-6">
+                        <h5 class="text-lg font-semibold mb-4">Extremely Fast</h5>
+                        <p class="text-left">
+                          Have you ever heard of the speed of the sound? Maybe, you know the speed of the link? Our site is breaking the logic of this world and working as fast as it possibly cannot. How is that? We don't know surely, but we heard that our provider is Sonic himself =)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                      <div class="rounded-lg shadow-lg h-full block bg-[#F5EBE0] font-semibold dark:text-white border-gray-200 dark:bg-[#6B728E] dark:border-gray-700">
+                        <div class="flex justify-center">
+                              <div class="p-4 bg-blue-600 rounded-full shadow-lg inline-block mt-8">
+                                <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                  <path fill="currentColor" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                                </svg>
+
+                              </div>
+                            </div>
+                            <div class="p-6">
+                              <h5 class="text-lg font-semibold mb-4">Functionality</h5>
+                              <p class="text-left">
+                                We are constantly building new features and updating previous ones to step up our goal - creating a user-friendly and the most functional CRM system. So, you can suggest any new features and we might be very interested in implementing them into the system.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+            <!-- Slider indicators -->
+            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+            </div>
+            <!-- Slider controls -->
+            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg aria-hidden="true" class="w-5 h-5 text-gray-800 sm:w-6 sm:h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg aria-hidden="true" class="w-5 h-5 text-gray-800 sm:w-6 sm:h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
+        </div>
+      </section>
+    </div>
+
+  <!-- Section: Login -->
+    <section class="bg-transparent-100">
+      <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+          <div class="mr-auto place-self-center lg:col-span-7">
+              <h1 class="max-w-2xl mb-4 text-xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-3xl dark:text-white">Ready-to-go</h1>
+              <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-200">
+                Start your journey right after registration. With a lack of time it would be the best solution
+                to save energy and stay tunned on meetings, watch the company updates and operate with documents library.
+              </p>
+              
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'leads:lead-list' %}">
+                <button class="relative items-center justify-center inline-flex p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:bg-gradient-to-br dark:from-green-400 dark:to-blue-600 dark:group-hover:from-green-400 dark:group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                  <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-[#404258] rounded-md group-hover:bg-opacity-0">
+                    Leads
+                  </span>
+                </button>
+              </a>
+              {% else %}
+              <a href="{% url 'login' %}">
+                <button class="relative items-center justify-center inline-flex p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:bg-gradient-to-br dark:from-green-400 dark:to-blue-600 dark:group-hover:from-green-400 dark:group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                  <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-[#404258] rounded-md group-hover:bg-opacity-0">
+                  Sign in
+                  <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </span>
+                </button>
+              </a>
+              {% endif %}
+          </div>
+          <div class="hidden lg:mt-0 lg:col-span-5 lg:flex md:w-128 md:h-128 mg:w-64 mg:h-64 transition-all duration-300 rounded-lg blur-sm hover:blur-none">
+              <img src="{% static 'images\ops.png' %}" alt="documents.png">
+          </div>                
+      </div>
+    </section>
+
+  <!-- Section: Technologies -->
+    <div class="container mt-8 px-6 mx-auto">
+      <!-- Section: Design Block -->
+      <section class="pb-8 text-gray-800 text-center">
+        <div class="px-6 py-12 md:px-12">
+          <div class="container mx-auto xl:px-32">
+            <div class="grid lg:grid-cols-2 flex items-center">
+              <div class="md:mt-12 lg:mt-0 mb-12 lg:mb-0">
+                <div
+                  class="block rounded-lg shadow-lg px-6 py-12 md:px-12 lg:-mr-14"
+                  style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px)"
+                >
+                  <h2 class="text-3xl font-bold mb-12">
+                    Using powerful instruments<br/>
+                    <span class="">To provide quality</span>
+                  </h2>
+                  <hr />
+                  <div class="grid md:grid-cols-2 gap-x-6 mt-2">
+                    <a href="https://www.python.org/" target="_blank">
+                      <div class="mb-12">
+                        <img
+                          src="{% static 'images\python.svg' %}"
+                          class="bg-fixed opacity-80 transition duration-300 ease-in-out hover:opacity-100 px-6"
+                          alt="Python - logo"
+                        />
+                      </div>
+                    </a>
+                    <a href="https://www.djangoproject.com/" target="_blank">
+                      <div class="mb-12">
+                        <img
+                          src="{% static 'images\django.svg' %}"
+                          class="bg-fixed opacity-80 transition duration-300 ease-in-out hover:opacity-100 px-6"
+                          alt="Django - logo"
+                        />
+                      </div>
+                    </a>
+                    <a href="https://tailwindcss.com/" target="_blank">
+                      <div class="mb-12 md:mb-0">
+                        <img
+                          src="{% static 'images\tailwind.svg' %}"
+                          class="bg-fixed opacity-80 transition duration-300 ease-in-out hover:opacity-100 px-6"
+                          alt="Tailwind - logo"
+                        />
+                      </div>
+                    </a>
+                    <a href="https://uk.wikipedia.org/wiki/HTML5" target="_blank">
+                      <div class="mb-12">
+                        <img
+                          src="{% static 'images\html.svg' %}"
+                          class="bg-fixed opacity-80 transition duration-300 ease-in-out hover:opacity-100 px-6"
+                          alt="HTML - logo"
+                        />
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="md:mb-12 lg:mb-0">
+                <img
+                  src="{% static 'images\logo.png' %}"
+                  class="w-full rounded-lg shadow-lg"
+                  alt="Site - logo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+</div>
+{% endblock content %}

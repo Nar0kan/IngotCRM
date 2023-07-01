@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!--Team section-->
+    <section class="bg-[#FCF1F1] font-semibold dark:text-white border-gray-200 dark:bg-[#474E68] dark:border-gray-700 round">
+        <div class="py-8 px-4 mx-auto max-w-screen-sm lg:py-8 lg:px-6">
+            <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-8">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Team</h2>
+                <p class="font-light text-black lg:mb-8 sm:text-xl dark:text-gray-300"><i>Enjoy</i> using our product right now, cause the specialists are eager to <i>update</i> and <i>explore</i> it <i>together</i> with you!</p>
+            </div> 
+            <div class="grid gap-8 mb-6 lg:mb-8 md:grid-cols-1">
+                <div class="items-center bg-[#F5EBE0] rounded-lg shadow sm:flex dark:bg-[#50577A] dark:border-gray-200 bg-transparent-75">
+                    <a href="#">
+                        <img class="w-2/3 max-h-scren-sm rounded-lg sm:rounded-none sm:rounded-l-lg" src="{% static 'images/nikita.jpg' %}" alt="Nikita Avatar">
+                    </a>
+                    <div class="p-5">
+                        <h3 class="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                            <a href="#">Nikita Kirichenko</a>
+                        </h3>
+                        <span class="text-xxl text-gray-500 dark:text-gray-200">Web Developer</span>
+                        <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-300">Nikita is the only member in our team, so any support will be appreciated ^_^</p>
+                        <ul class="flex space-x-4 sm:mt-0">
+                            <li>
+                                <a href="https://github.com/Nar0kan" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>  
+        </div>
+    </section>
+
+<!--FAQ section-->
+    <section class="bg-[#FCF1F1] font-semibold dark:text-white border-gray-200 dark:bg-[#474E68] dark:border-gray-700 round">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+            <h4 class="flex justify-center mb-8 text-3xl tracking-tight font-extrabold text-gray-900 dark:text-white">Frequently asked questions | FAQ</h4>
+            <div class="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2">
+                <div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            How do I create my own organization?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-200">
+                            By creating new account you will automatically be loged in as an organization. That is why to create agents in your account and let them log in you should
+                            consider creating your organization first using registration. After that go to 'Agents' page and 'Add a new agent'. After completing the form new account
+                            will be created with the username you entered. A mail will be sent to the mail you have entered with all sing up information. Your agents can sign up
+                            at any time by using this data.
+                        </p>
+                    </div>
+                    <div class="mb-10">                        
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What kind of documents can be uploaded?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-200">
+                            All organizations can only upload data files in pdf, docx, pptx, xlsx extensions, as only MS Office and PDF formats are supported.
+                        </p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            How does support work?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-200">
+                            We're aware of the importance of well qualified support, that is why we decided that support will only be provided
+                            by the authors that actually worked on this project.
+                        </p>
+                        <p class="text-gray-500 dark:text-gray-200">
+                            Feel free to 
+                                <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline" target="_blank" rel="noreferrer">
+                                    contact us
+                                </a> 
+                            and we'll help you out as soon as we can.
+                        </p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            I want to build more than one organization. Is that allowed?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-200">
+                            You're free to use many accounts as you like. However, don't overpush this posibility, cause it may cause trouble for everyone.
+                            We are trying to be nice here :)
+                        </p>
+                        <p class="text-gray-500 dark:text-gray-200">Find out more information by <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">reading the license</a>.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What does "Free version" include?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-200">
+                            The free version is based on basic needs for organization to see the adventages of IngotCRM.
+                            By using free bundle you'l have access to the leads, agents, categories, documents layouts.
+                            But uploading document any other format than pdf will be restricted. Also the amount of
+                            leads can be up to 50 and agents you can operate with is up to 10.
+                        </p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What does the "Gold version" include?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-200">
+                            The
+                            <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">
+                                Gold version
+                            </a>
+                            includes a Calendar and a Notes pages for Agents, Comments for Documents, all MS Office formats for documents,
+                            like .pptx, .xlsx, .docx, .pdf. Besides, the organization with the "Gold version" can handle up to 500 leads and
+                            100 agents. Additionally, the customer support for "Gold vresion" users is immidiate.
+                        </p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What is the difference between the 'Gold' and the 'Silver' versions?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-200">
+                            The 'Silver' version has almost the same features, except the limit for the leads is 200 and for agents 50.
+                            Also the Comments for Documents are not involved here. But the support is fast responding too.
+                        </p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What if I find a bug?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-200">
+                            If you have discovered any bug, or other discomfortable type of things on the site - feel free to 
+                            <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline" target="_blank" rel="noreferrer">
+                                contact us
+                            </a> 
+                            !
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

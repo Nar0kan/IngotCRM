@@ -1,0 +1,68 @@
+{% load static %}
+
+<footer class="bg-[#1A1C20] dark:bg-gray-900">
+    <div class="mx-auto w-full container p-4 sm:p-6">
+        <div class="md:flex md:justify-between">
+        <div class="mb-6 md:mb-0">
+            <p>
+                <a href="{% url 'landing-page' %}" class="inline-flex items-center">
+                    <img src="{% static 'images\logo.png' %}" class="h-8 mr-3" alt="Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">IngotCRM</span>
+                </a>
+            </p>
+        </div>
+        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-100 uppercase dark:text-white">Resources</h2>
+                <ul class="text-gray-200 dark:text-gray-400 font-medium">
+                    <li class="mb-4">
+                        <a href="https://djangopackages.org/" class="hover:underline" target="_blank">Django packages</a>
+                    </li>
+                    <li>
+                        <a href="https://flowbite.com/" class="hover:underline" target="_blank">Flowbite</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-100 uppercase dark:text-white">Follow us</h2>
+                <ul class="text-gray-200 dark:text-gray-400 font-medium">
+                    <li class="mb-4">
+                        <a href="https://github.com/Nar0kan/Notes-and-Projects/tree/main/DjangoWebDev/IngotCRM/" class="hover:underline" target="_blank">Github</a>
+                    </li>
+                    <li>
+                        <a href="https://discord.gg/" class="hover:underline" target="_blank">Discord</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-100 uppercase dark:text-white">Legal</h2>
+                <ul class="text-gray-200 dark:text-gray-400 font-medium">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <div class="sm:flex sm:items-center sm:justify-between">
+        <span class="text-sm text-gray-200 sm:text-center dark:text-gray-400">© 2023 <a href="{% url 'landing-page' %}" class="hover:underline" target="_blank">IngotCRM™</a>. All Rights Reserved.
+        </span>
+        <a href="{% url 'donate' %}" class="inline-block text-sm font-semibold text-gray-100 dark:text-white hover:text-blue-200 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center text-black hover:bg-[#DBA39A] font-semibold dark:text-white border-2 border-gray-500 dark:border-[#404258] round dark:hover:bg-gray-600 px-5 py-2">Support us</a>
+        <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+            <a href="https://www.linkedin.com/in/nikita-kirichenko-781062251/" class="text-gray-200 hover:text-gray-900 dark:hover:text-white" target="_blank">
+                <img class="w-10 h-10" fill="currentColor" src="{% static 'images\linkedin.svg' %}" viewBox="0 0 24 24" aria-hidden="true"/>
+                <span class="sr-only">Linkedin page</span>
+            </a>
+            <a href="https://github.com/Nar0kan/" class="text-gray-200 hover:text-gray-900 dark:hover:text-white" target="_blank">
+                <img class="w-10 h-10" fill="currentColor" src="{% static 'images\github.svg' %}" viewBox="0 0 24 24" aria-hidden="true"/>
+                <span class="sr-only">GitHub account</span>
+            </a>
+            <p class="text-gray-400"> icons by <a target="_blank" href="https://icons8.com">Icons8</a></p>
+        </div>
+    </div>
+    </div>
+</footer>
