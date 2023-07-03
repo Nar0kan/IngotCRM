@@ -16,7 +16,7 @@ if READ_DOT_ENV_FILE:
 DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*', '.vercel.app']
 
 # Application definition
 
@@ -158,7 +158,3 @@ PAYPAL_TEST = True
 PAYPAL_RECEIVER_EMAIL = env('PAYPAL_RECEIVER_EMAIL')
 
 PAYPAL_RECEIVER_ID = env('PAYPAL_RECEIVER_ID')
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://efa7-195-46-35-226.ngrok-free.app'
-]
