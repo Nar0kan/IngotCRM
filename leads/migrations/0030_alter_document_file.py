@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import leads.validators
-
+from django.core.validators import FileExtensionValidator
 
 class Migration(migrations.Migration):
 
@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='document',
             name='file',
-            field=models.FileField(upload_to='media/', validators=[leads.validators.validate_file]),
+            field=models.FileField(upload_to='media/', validators=[FileExtensionValidator(allowed_extensions=['pdf', 'txt', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'])]),
         ),
     ]

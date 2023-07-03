@@ -16,7 +16,7 @@ if READ_DOT_ENV_FILE:
 DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = ['*', '.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app']
 
 # Application definition
 
