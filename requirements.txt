@@ -19,7 +19,7 @@ pyinstaller==5.8.0
 pyinstaller-hooks-contrib==2023.0
 pyperclip==1.8.2
 python-magic==0.4.27
-python-magic-bin==0.4.14
+python-magic-bin==0.4.13
 pytz==2022.7
 pywin32-ctypes==0.2.0
 requests==2.31.0

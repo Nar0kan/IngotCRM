@@ -8,7 +8,7 @@ env = environ.Env(
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-READ_DOT_ENV_FILE = env.bool('READ_DOT_ENV_FILE', default=False) # False in production
+READ_DOT_ENV_FILE = env.bool('READ_DOT_ENV_FILE', default=True) # False in production
 
 if READ_DOT_ENV_FILE:
     environ.Env.read_env(os.path.join(BASE_DIR / "ingotcrm", '.env'))
@@ -16,7 +16,7 @@ if READ_DOT_ENV_FILE:
 DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = ['*', '.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app']
 
 # Application definition
 
