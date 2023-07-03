@@ -11,7 +11,6 @@ django-jquery==3.1.0
 django-paypal==2.0
 future==0.18.3
 idna==3.4
-libmagic==1.0
 pefile==2023.2.7
 Pillow==9.4.0
 psycopg2-binary==2.9.6
@@ -19,7 +18,7 @@ pyinstaller==5.8.0
 pyinstaller-hooks-contrib==2023.0
 pyperclip==1.8.2
 python-magic==0.4.27
-python-magic-bin==0.4.13
+python-magic-bin==0.4.14
 pytz==2022.7
 pywin32-ctypes==0.2.0
 requests==2.31.0
