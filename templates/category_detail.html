@@ -24,9 +24,9 @@
       <a href="{% url 'leads:lead-detail' lead.pk %}">
         <li class="flex pb-5 pt-5 ml-5 py-4 first:pt-0 last:pb-0 hover:border-l-2 hover:border-blue-300 mb-3 px-5">
             {% if lead.photo %}
-              <img src="{{ lead.photo.url }}" alt="{% static 'images\UserPhoto.jpg' %}" class="h-12 w-12" style="border-radius: 50%;"/>
+              <img src="{{ lead.photo.url }}" alt="{% static 'images/UserPhoto.jpg' %}" class="h-12 w-12" style="border-radius: 50%;"/>
             {% else %}
-              <img src="{% static 'images\UserPhoto.jpg' %}" alt="Photo" class="h-12 w-12" style="border-radius: 50%;"/>
+              <img src="{% static 'images/UserPhoto.jpg' %}" alt="Photo" class="h-12 w-12" style="border-radius: 50%;"/>
             {% endif %}
           
           <div class="ml-3 overflow-hidden">

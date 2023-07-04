@@ -31,7 +31,7 @@
                 <div class="" data-carousel="static">
                   <a href="{% url 'leads:assign-agent' lead.pk %}">
                     <li class="flex mt-3 mb-3 py-4 first:pt-0 last:pb-0">
-                      <img src="{% static 'images\UserPhoto.jpg' %}" class="h-12 w-12" alt="Standart profile photo" style="border-radius: 50%;"/>
+                      <img src="{% static 'images/UserPhoto.jpg' %}" class="h-12 w-12" alt="Standart profile photo" style="border-radius: 50%;"/>
                       <div class="ml-3 overflow-hidden">
                         <p class="text-sm font-medium text-slate-900">
                             <h3>{{ lead.first_name }} {{ lead.last_name }}</h3>
@@ -58,7 +58,7 @@
               {% if lead.photo %}
                 <img src="{{ lead.photo.url }}" alt="{{lead.first_name}} {{lead.last_name}} profile" class="h-12 w-12" alt="Custom profile photo" style="border-radius: 50%;"/>
               {% else %}
-                <img src="{% static 'images\UserPhoto.jpg' %}" alt="Standart static profile" alt="Standart profile photo" class="h-12 w-12" style="border-radius: 50%;"/>
+                <img src="{% static 'images/UserPhoto.jpg' %}" alt="Standart static profile" alt="Standart profile photo" class="h-12 w-12" style="border-radius: 50%;"/>
               {% endif %}
             </a>
             <div class="ml-3 overflow-hidden">

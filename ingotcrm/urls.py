@@ -16,6 +16,9 @@ from django.contrib.auth.views import (
     )
 from django.conf.urls.static import static
 
+from django.views.static import serve
+from django.urls import re_path as url
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +39,7 @@ urlpatterns = [
     path('donate/', DonateView, name='donate'),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('ecom/', include('ecom.urls')),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
 
 handler404 = 'leads.views.Error404View'
