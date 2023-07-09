@@ -4,23 +4,28 @@
 {% block content %}
   <div class="my-8 grid grid-cols-8 gap-4 w-full bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-[#474E68] dark:border-gray-800">
     <label for="agent" class="text-center px-4 py-4 col-span-8 text-black dark:text-white">Are you sure, that you want to delete '{{ document.title }}'?</label>
-    <form method="post" enctype="multipart/form-data" autocomplete="off" class="col-start-4 px-2">
-      {% csrf_token %}
-        {{ form|crispy }}
-        <p>
-          <button type="submit" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-200 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                DELETE
-            </span>
-          </button>
-        </p>
-    </form>
-    <a href="{% url 'leads:document-detail' document.pk %}" class="col-start-5 px-2">
-      <button type="cancel" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-            CANCEL
-        </span>
-      </button>
-    </a>
+    <div class="col-span-8 md:col-span-4 mx-auto px-2">
+      <form method="post" enctype="multipart/form-data" autocomplete="off" class="col-start-4 px-2">
+        {% csrf_token %}
+          {{ form|crispy }}
+          <p>
+            <button type="submit" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+              <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-200 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                  DELETE
+              </span>
+            </button>
+          </p>
+      </form>
+    </div>
+
+    <div class="col-span-8 md:col-span-4 mx-auto px-2">
+      <a href="{% url 'leads:document-detail' document.pk %}" class="col-start-5 px-2">
+        <button type="cancel" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              CANCEL
+          </span>
+        </button>
+      </a>
+    </div>
   </div>
 {% endblock content %}

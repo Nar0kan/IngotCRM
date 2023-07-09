@@ -2,14 +2,14 @@
 {% load tailwind_filters %}
 
 {% block content %}
-  <h1 class="sm:text-3xl text-2xl font-extrabold mb-1 mt-5 text-center text-black dark:text-white border-b-2 border-gray-200 dark:border-green-200">Assign an agent to this lead</h1>
+  <h1 class="text-3xl font-extrabold mb-1 mt-5 text-center text-black dark:text-white border-b-2 border-gray-200 dark:border-green-200">Assign an agent to this lead</h1>
   <br/>
 
-  <div class="m-0 ml-auto mr-auto mt-2">
+  <div class="m-0 mx-auto mt-2 text-center">
     <form method="post">
       {% csrf_token %}
       {{ form|crispy }}
-      <button type="submit" class="flex mx-auto mt-6 mb-6 text-white bg-green-500 border-0 px-8 focus:outline-none hover:bg-cyan-500 hover:text-black rounded text-lg">Submit</button>
+      <button type="submit" class="flex mx-auto my-4 py-2 text-white bg-green-500 border-0 px-8 focus:outline-none hover:bg-cyan-500 hover:text-black rounded text-lg">Submit</button>
       <br/>
     </form>
   </div>
