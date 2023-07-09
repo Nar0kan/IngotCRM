@@ -20,21 +20,21 @@
             </svg>
           </div>
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="font-medium title-font mt-4 text-gray-900 text-4xl">{{ agent.username }}</h2>
+            <h2 class="font-medium title-font mt-4 text-gray-900 text-3xl md:text-2xl">{{ agent.username }}</h2>
             <div class="w-12 h-1 bg-green-500 rounded mt-2 mb-3"></div>
-              <p class="text-2xl break-words">
+              <p class="text-2xl md:text-xl break-words">
                 {{ agent.position }}
               </p>
             </div>
         </div>
         <div class="block md:inline-block w-full break-words px-2 md:w-2/3 md:pl-8 md:py-8 md:border-l text-black dark:bg-gray-200 border-gray-200 dark:border-green-200 md:border-t-0 border-t mt-4 pt-4 md:mt-0 text-center md:text-left">
-          <p class="leading-relaxed font-medium mb-2 text-3xl">
+          <p class="leading-relaxed font-medium mb-2 text-3xl md:text-2xl">
             <button id="toggle-information-btn">Information</button>
             <br/>
             <div class="border-2 border-gray-200 dark:border-green-200 drop-shadow-xl mb-4"/>
             </div>
           </p>
-          <div id="paragraphs" class="md:w-2/3 md:pl-8 ml-2 text-2xl text-black dark:text-white">
+          <div id="paragraphs" class="md:w-2/3 md:pl-8 ml-2 text-2xl md:text-xl text-black dark:text-white">
             <p class="my-3"><em class="block break-words">Full name:</em> {{ agent.first_name }} {{ agent.last_name }}</p>
             
             <p class="my-3"><em class="block break-words">Phone number:</em>
@@ -42,7 +42,7 @@
                 {{ agent.phone_number }}
               </button>
               <div id="copyAlertPhone" class="flex ml-4 px-2 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-                <div class="text-3xl font-small">
+                <div class="text-xl md:text-xs font-small">
                   The phone number was copied successfully.
                 </div>
               </div>
@@ -53,7 +53,7 @@
                 {{ agent.email }}
               </button>
               <div id="copyAlertEmail" class="flex ml-4 pr-2 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-                <div class="ml-3 text-3xl font-small">
+                <div class="ml-3 text-xl md:text-xs font-small">
                   The email was copied successfully.
                 </div>
               </div>
@@ -61,7 +61,7 @@
           </div>
           <br/><br/>
           <p class="text-green-500 inline-flex items-center">
-            <a href="{% url 'agents:profile-update' agent.pk %}"><button class="flex justify-center m-2 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-4xl align-center" style="display: block; float: left;"> Update </button></a>
+            <a href="{% url 'agents:profile-update' agent.pk %}"><button class="flex justify-center m-2 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-2xl md:text-xl align-center" style="display: block; float: left;"> Update </button></a>
           </p>
         </div>
       </div>

@@ -27,27 +27,27 @@
               {% endif %}
           </div>
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="font-medium title-font mt-4 text-black dark:text-white text-3xl">{{ agent.user.username }}</h2>
+            <h2 class="font-medium title-font mt-4 text-black dark:text-white text-3xl md:text-2xl">{{ agent.user.username }}</h2>
             <div class="w-12 h-1 bg-green-500 rounded mt-2 mb-3"></div>
-            <p class="text-black dark:text-white text-2xl">
+            <p class="text-black dark:text-white text-2xl md:text-xl">
               {{ agent.user.position }}
             </p>
           </div>
         </div>
         <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l text-black dark:text-white border-gray-200 dark:border-green-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-          <p class="mr-4 leading-relaxed text-3xl font-medium mb-2">
+          <p class="mr-4 leading-relaxed text-3xl md:text-2xl font-medium mb-2">
             <button id="toggle-information-btn">Information</button>
             <div class="border-2 border-gray-200 dark:border-green-200 drop-shadow-xl"/>
             </div>
           </p>
-          <div id="paragraphs" class="sm:w-2/3 sm:pl-8 ml-2 text-2xl text-black dark:text-white">
+          <div id="paragraphs" class="sm:w-2/3 sm:pl-8 ml-2 text-2xl md:text-xl text-black dark:text-white">
             <p class="my-3"><em class="block break-words">Full name:</em> {{ agent.user.first_name }} {{ agent.user.last_name }}</p>
             <p class="my-3"><em class="block break-words">Phone number:</em>
               <button id="phone_button" class="underline" onclick="copyPhoneToClipboard()">
                 {{ agent.user.phone_number }}
               </button>
               <div id="copyAlertPhone" class="flex ml-4 px-2 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-                <div class="text-xl font-small">
+                <div class="text-xl md:text-sm font-small">
                   The phone number was copied successfully.
                 </div>
               </div>
@@ -57,7 +57,7 @@
                 {{ agent.user.email }}
               </button>
               <div id="copyAlertEmail" class="flex ml-4 pr-2 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-                <div class="ml-3 text-xl font-small">
+                <div class="ml-3 text-xl md:text-sm font-small">
                   The email was copied successfully.
                 </div>
               </div>
@@ -65,8 +65,8 @@
             <br/><br/>
           </div>
           <p class="text-green-500 block mx-auto mt-2 sm:mt-6 text-2xl">
-            <a href="{% url 'agents:agent-update' agent.id %}"><button class="block w-full sm:w-2/3 my-2 mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg align-center"> Update </button></a>
-            <a href="{% url 'agents:agent-delete' agent.id %}"><button class="block w-full sm:w-2/3 my-2 mx-auto text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg align-center"> Delete </button></a>
+            <a href="{% url 'agents:agent-update' agent.id %}"><button class="block w-full sm:w-2/3 my-2 mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-2xl md:text-lg align-center"> Update </button></a>
+            <a href="{% url 'agents:agent-delete' agent.id %}"><button class="block w-full sm:w-2/3 my-2 mx-auto text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-2xl md:text-lg align-center"> Delete </button></a>
           </p>
         </div>
       </div>
