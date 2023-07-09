@@ -2,31 +2,49 @@
 
 <header>
   <nav class="px-2 items-center bg-[#1A1C20] border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-    <div class="container flex flex-wrap items-center grid grid-cols-7 sm:flex sm:items-center sm:justify-between mx-auto">
+    <div class="container flex flex-wrap items-center grid grid-cols-7 md:flex md:items-center sm:justify-between mx-auto">
       <!-- Left side elements -->
-      <div class="col-span-2">
-        <a href="{% url 'landing-page' %}" class="flex items-center">
-            <img src="{% static 'images/logo.png' %}" class="h-6 mr-3 sm:h-10 rounded-full" alt="logo" />
-            <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Ingot CRM</span>
+      <div class="col-span-7 md:col-span-2">
+        <a href="{% url 'landing-page' %}" class="inline-flex md:block items-center mx-auto md:flex sm:items-center">
+            <img src="{% static 'images/logo.png' %}" class="inline-block md:block h-6 mr-3 md:h-10 rounded-full" alt="logo" />
+            <span class="self-center inline-block md:block text-xl font-semibold text-wrap md:whitespace-nowrap text-white">Ingot CRM</span>
         </a>
-        <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
+        <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex float-right items-center x- p-2 mr-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
         </button>
       </div>
 
-      <div class="col-span-4 hidden w-full md:block md:w-auto" id="navbar-dropdown">
+      <div class="col-span-7 hidden block w-full mx-auto md:block md:w-auto mb-2" id="navbar-dropdown">
         <ul class="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg bg-transparent-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent-100 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
           
           <!-- Center side elements -->
             {% if request.user.is_authenticated %}
               <li>
                 {% if request.user.is_organisor %}
-                  <a href="{% url 'agents:agent-list' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Agents</a>
-                {% else %}
-                  <a href="{% url 'agents:agent-profile' request.user.id %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Profile</a>
-                {% endif %}
+                  <a href="{% url 'agents:agent-list' %}" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Agents</a>
                 </li>
+                <li>
+                  <a href="{% url 'change_password' %}" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Change password</a>
+                </li>
+                {% else %}
+                  <button data-dropdown-toggle="dropdownProfile" id="dropdownProfileButton" data-dropdown-toggle="dropdown" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent inline-flex" type="button">
+                    Profile
+                    <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </button>
+                  <div id="dropdownProfile" class="z-10 hidden hover:backdrop-blur-lg bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-800 dark:text-gray-200" aria-labelledby="dropdownProfileButton">
+                      <li>
+                        <a href="{% url 'agents:agent-profile' request.user.id %}" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Profile</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'change_password' %}" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Change password</a>
+                      </li>
+                    </ul>
+                  </div>
+                {% endif %}
+                
+              </li>
               <li>
                 <button data-dropdown-toggle="dropdownLeads" id="dropdownLeadsButton" data-dropdown-toggle="dropdown" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent inline-flex" type="button">
                   Leads
@@ -35,19 +53,16 @@
                 <div id="dropdownLeads" class="z-10 hidden hover:backdrop-blur-lg bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                   <ul class="py-2 text-sm text-gray-800 dark:text-gray-200" aria-labelledby="dropdownLeadsButton">
                     <li>
-                      <a href="{% url 'leads:lead-list' %}" class="block px-4 bg-transparent-100 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Leads</a>
+                      <a href="{% url 'leads:lead-list' %}" class="block text-center px-4 bg-transparent-100 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Leads</a>
                     </li>
                     <li>
-                      <a href="{% url 'leads:category-list' %}" class="block px-4 bg-transparent-100 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Categories</a>
+                      <a href="{% url 'leads:category-list' %}" class="block text-center px-4 bg-transparent-100 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Categories</a>
                     </li>
                     <li>
-                      <a href="{% url 'leads:document-list' %}" class="block px-4 bg-transparent-100 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Documents</a>
+                      <a href="{% url 'leads:document-list' %}" class="block text-center px-4 bg-transparent-100 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Documents</a>
                     </li>
                   </ul>
                 </div>
-              </li>
-              <li>
-                <a href="{% url 'change_password' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Change password</a>
               </li>
               <li>
                 <a href="{% url 'landing-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>

@@ -12,11 +12,15 @@
     <form method="post">
       {% csrf_token %}
 
-      <div class="px-2">
-        <label for="id_username" class="flex text-xl text-bold justify-center text-black dark:text-white">Username</label>
-        {{ form.username|as_crispy_field }}
-        <label for="id_password" class="flex text-xl text-bold justify-center text-black dark:text-white">Password</label>
-        {{ form.password|as_crispy_field }}
+      <div class="grid grid-cols-4 gap-4 w-full">
+        <div class="text-center col-span-4 p-2 sm:p-4">
+          <label for="id_username" class="text-center text-xl text-bold text-black dark:text-white">Username</label>
+          {{ form.username|as_crispy_field }}
+        </div>
+        <div class="text-center col-span-4 p-2 sm:p-4">
+          <label for="id_password" class="text-center text-xl text-bold text-black dark:text-white">Password</label>
+          {{ form.password|as_crispy_field }}
+        </div>
       </div>
 
       <p class="flex justify-center">
@@ -30,10 +34,9 @@
       <br/>
     </form>
 
-    <div class="flex justify-evenly border-t border-gray-200 mt-2 mb-4 px-4">
-      <a class="hover:text-blue-500 mt-3 pl-8" href="{% url 'password-reset'%}">Forgot password?</a>
-      <a class="border-r-2 border-gray-400 mt-3"></a>
-      <a class="hover:text-blue-500 mt-3" href="{% url 'register'%}">Don't have an account?</a>
+    <div class="grid grid-cols-4 gap-4 w-full border-t border-gray-200 mt-2 mb-4 px-4">
+      <a class="col-span-4 sm:col-span-2 p-2 hover:text-blue-500 text-center" href="{% url 'password-reset'%}">Forgot password?</a>
+      <a class="col-span-4 sm:col-span-2 p-2 hover:text-blue-500 text-center" href="{% url 'register'%}">Don't have an account?</a>
     </div>
 
   </div>

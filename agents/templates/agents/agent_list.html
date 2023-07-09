@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-<div class="bg-[#FCF1F1] dark:bg-[#474E68] py-8 h-full">
+<div class="bg-[#FCF1F1] dark:bg-[#474E68] py-8">
     <div class="flex justify-center">
-        <p class="text-4xl md:text-5xl text-black dark:text-white mr-5 mt-5 text-center text-extrabold">Agents</p>
+        <p class="text-4xl md:text-5xl text-black dark:text-white mt-5 text-center text-extrabold">Agents</p>
     </div>
 
     
@@ -20,7 +20,7 @@
     </div>
 
 
-    <div class="flex justify-items-center">
+    <div class="flex justify-center">
         <ul role="list" class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {% for agent in agents %}
                 <div class="block w-full h-full rounded">
@@ -32,7 +32,7 @@
                                 <img src="{% static 'images/UserPhoto.jpg' %}" alt="Profile picture" style="width: 150px; height: 150px; border-radius: 50%;">
                             {% endif %}
                             </circle>
-                            <div class="ml-3 overflow-hidden">
+                            <div class="wrap-words">
                                 <p class="text-sm font-medium text-black dark:text-white">
                                     <h3>{{ agent.user.first_name }} {{ agent.user.last_name }}</h3>
                                 </p>

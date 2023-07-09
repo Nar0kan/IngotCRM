@@ -4,9 +4,9 @@
 
 {% block content %}
 <div class="bg-[#FCF1F1] dark:bg-[#474E68] py-12">
-  <div class="flex ml-5 space-x-2 justify-left">
+  <div class="block space-x-2 mx-auto sm:mx-0 sm:float-left w-full">
     <div>
-      <a  href="{% url 'leads:lead-list' %}"><button type="button" class="inline-block px-6 pt-2 mt-6 pb-2 dark:bg-yellow-200 text-black bg-gray-200/50 font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-300 hover:shadow-lg focus:bg-blue-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-300 active:shadow-lg transition duration-150 ease-in-out flex align-center">
+      <a  href="{% url 'leads:lead-list' %}"><button type="button" class="block px-6 pt-2 mt-6 pb-2 dark:bg-yellow-200 text-black bg-gray-200/50 font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-300 hover:shadow-lg focus:bg-blue-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-300 active:shadow-lg transition duration-150 ease-in-out flex align-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-3 pb-1">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
@@ -18,15 +18,15 @@
   <section class="text-gray-600 body-font">
     <div class="container px-5 pt-12 pb-24 mx-auto flex flex-col">
       <div class="lg:w-4/6 mx-auto">
-        <div class="flex flex-col sm:flex-row mt-10">
-          <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-            <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400 dark:text-white">
+        <div class="flex flex-col sm:flex-row">
+          <div class="w-full sm:w-1/3 text-center sm:pr-4 sm:py-8">
+            <div class="w-100 h-100 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400 dark:text-white">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke:currentColor;">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
                 {% if lead.photo %}
-                  <img src="{{ lead.photo.url }}" alt="Custom profile photo" style="border-radius: 50%;">
+                  <img src="{{ lead.photo.url }}" alt="Custom profile photo" style="width: 150px; height: 150px; border-radius: 50%;">
                 {% else %}
-                  <img src="{% static 'images/UserPhoto.jpg' %}" alt="Standart profile photo" style="border-radius: 50%;">
+                  <img src="{% static 'images/UserPhoto.jpg' %}" alt="Standart profile photo" style="width: 150px; height: 150px; border-radius: 50%;">
                 {% endif %}
                 </circle>
               </svg>
@@ -138,7 +138,7 @@
               <form method="POST" action="{% url 'leads:lead-detail' lead.pk %}" class="post-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button type="submit" class="bg-transparent text-[#1A1C20] dark:text-white hover:bg-blue-600 hover:text-black dark:hover:bg-blue-500 bg-[#FEFCF3] dark:bg-[#6B728E]/50 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Add comment</button>
+                <button type="submit" class="block mx-auto sm:mx-0 bg-transparent text-[#1A1C20] dark:text-white hover:bg-blue-600 hover:text-black dark:hover:bg-blue-500 bg-[#FEFCF3] dark:bg-[#6B728E]/50 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Add comment</button>
               </form>
             </p>
           </div>
@@ -146,19 +146,19 @@
           <div class="mt-10 mb-2">
             {% if lead.lead_com.all %}
               {% for comment in lead.lead_com.all|slice:"0:3" %}
-              <div class="grid grid-cols-5 sm:grid-cols-6 mb-2 p-6 bg-white border border-gray-200 dark:border-green-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div class="col col-span-2">
+              <div class="grid grid-cols-6 mb-2 p-6 bg-white border border-gray-200 dark:border-green-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="col col-span-6 sm:col-span-2 mx-auto align-center border-b-4 border-green-300 border-transrapent-90 sm:border-transrapent-100">
                   <h3 class="sm:w-[50%] text-center text-xm border-b-2 text-black dark:text-white"><strong>{{ comment.author }}</strong></h3><h6><small class="text-black dark:text-white"> {{ comment.date_added }} </small></h6>
                 </div>
-                <div class="break-words col col-span-3 sm:col-span-4 ml-2 border-l-4 text-left pl-4 border-green-300 border-transrapent-90">
-                  <p rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <div class="break-words m-2 col col-span-6 sm:col-span-4 sm:border-l-4 text-left border-green-300 border-transrapent-90">
+                  <p rows="4" class="block p-2.5 w-full sm:ml-2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     {{ comment.text }}
                   </p>
                 </div>
               </div>
               {% endfor %}
             {% else %}
-              <p class="text-black dark:text-white"><strong>No comments yet...</strong></p>
+              <p class="text-black dark:text-white text-center"><strong>No comments yet...</strong></p>
             {% endif %}
           </div>
         </div>
