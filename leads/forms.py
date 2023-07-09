@@ -6,7 +6,7 @@ from django.db.models.base import Model
 from django.forms.utils import ErrorList
 
 from django.contrib.auth.forms import (
-    UserCreationForm, UsernameField, AuthenticationForm, 
+    UserCreationForm, UsernameField, AuthenticationForm,
     PasswordChangeForm, PasswordResetForm, SetPasswordForm,
 )
 
@@ -31,14 +31,14 @@ class LeadModelForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         organisation = kwargs.pop('organisation', None)
         super().__init__(*args, **kwargs)
-        
+
         if organisation:
             categories = Category.objects.filter(organisation=organisation)
             self.fields['category'].queryset = categories
-            
+  
             agents = Agent.objects.filter(organisation=organisation)
             self.fields['agent'].queryset = agents
-        
+
         self.helper = FormHelper(self)
         self.helper.form_show_labels = False
         #self.helper.label_class = "text-black dark:text-white bg-yellow-500"
@@ -56,10 +56,10 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ("username", )
         field_classes = {"username": UsernameField, }
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-      
+
         self.helper = FormHelper(self)
 
         self.helper.form_show_labels = False
@@ -77,7 +77,7 @@ class CustomAuthenticationForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-      
+
         self.helper = FormHelper(self)
         self.helper.form_show_labels = False
 
@@ -89,7 +89,7 @@ class CustomPasswordChangeForm(PasswordChangeForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
         self.helper = FormHelper(self)
         self.helper.form_show_labels = False
 
@@ -105,7 +105,7 @@ class CustomPasswordResetForm(PasswordResetForm):
     class Meta:
         model = User
         fields = ("email", )
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -117,7 +117,7 @@ class CustomSetPasswordForm(SetPasswordForm):
     class Meta:
         model = User
         fields = ("new_password1", "new_password2")
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 

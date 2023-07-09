@@ -1,5 +1,5 @@
-from django.core.mail import send_mail
-from django.conf import settings
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import (
@@ -11,8 +11,8 @@ from django.contrib.auth.views import (
     PasswordResetView, PasswordResetConfirmView,
 )
 
+from django.conf import settings
 from agents.mixins import OrganisorRequiredMixin
-
 from .models import (
     Lead, Agent, Category, Document,
 )
@@ -21,7 +21,7 @@ from .forms import (
     LeadCategoryUpdateForm, UploadDocumentModelForm,
     LeadCommentForm, CustomAuthenticationForm,
     CustomPasswordChangeForm, CustomPasswordResetForm,
-    CustomSetPasswordForm, 
+    CustomSetPasswordForm,
 )
 from .filters import DocumentFilter
 
@@ -128,18 +128,21 @@ class LeadCreateView(LoginRequiredMixin, CreateView):
 
         if user.is_organisor:
             lead.organisation = user.userprofile
+            # recepients = user.userprofile.email
         else:
             lead.organisation = user.agent.organisation
+            recepients = user.agent.user.email # user.agent.organisation.email
+            email = EmailMessage(
+                subject="A new lead has been created",
+                body=f"Go to the site to see the new lead '{lead.first_name} {lead.last_name}'",
+                from_email=settings.EMAIL_HOST_USER,
+                to=[recepients]
+            )
+            email.fail_silently = False
+            email.send()
         
         lead.save()
         
-        send_mail(
-            subject="A lead has been created",
-            message="Go to the site to see the new lead",
-            from_email="test@test.com",
-            recipient_list=["test2@test.com"]
-        )
-
         form.instance.organisation = lead.organisation
         return super(LeadCreateView, self).form_valid(form)
 
@@ -198,6 +201,17 @@ class LeadDeleteView(OrganisorRequiredMixin, DeleteView):
         return Lead.objects.filter(organisation=user.userprofile)
 
     def get_success_url(self):
+        lead = self.get_object()
+        if lead.agent:
+            recepients = lead.agent.user.email # user.agent.organisation.email
+            email = EmailMessage(
+                subject="Lead was deleted.",
+                body=f"Lead {lead.first_name} {lead.last_name} was deleted.",
+                from_email=settings.EMAIL_HOST_USER,
+                to=[recepients],
+            )
+            email.fail_silently = False
+            email.send()
         return reverse("leads:lead-list")
 
 
@@ -214,7 +228,7 @@ class AssignAgentView(OrganisorRequiredMixin, FormView):
 
     def get_success_url(self):
         return reverse("leads:lead-list")
-    
+
     def form_valid(self, form):
         agent = form.cleaned_data["agent"]
         lead = Lead.objects.get(id=self.kwargs["pk"])
@@ -242,7 +256,7 @@ class CategoryListView(LoginRequiredMixin, ListView):
         })
 
         return context
-    
+
     def get_queryset(self):
         user = self.request.user
 
@@ -250,14 +264,14 @@ class CategoryListView(LoginRequiredMixin, ListView):
             queryset = Category.objects.filter(organisation=user.userprofile)
         else:
             queryset = Category.objects.filter(organisation=user.agent.organisation)
-        
+
         return queryset
 
 
 class CategoryDetailView(LoginRequiredMixin, DetailView):
     template_name = "category_detail.html"
     context_object_name = "category"
-    
+
     def get_queryset(self):
         user = self.request.user
 
@@ -265,7 +279,7 @@ class CategoryDetailView(LoginRequiredMixin, DetailView):
             queryset = Category.objects.filter(organisation=user.userprofile)
         else:
             queryset = Category.objects.filter(organisation=user.agent.organisation)
-        
+
         return queryset
 
 
@@ -281,9 +295,9 @@ class LeadCategoryUpdateView(LoginRequiredMixin, UpdateView):
         else:
             queryset = Lead.objects.filter(organisation=user.agent.organisation)
             queryset = Lead.objects.filter(agent__user=user)
-        
+
         return queryset
-    
+
     def get_form(self, form_class=LeadCategoryUpdateForm):
         form = super().get_form(form_class)
         user = self.request.user
@@ -294,7 +308,7 @@ class LeadCategoryUpdateView(LoginRequiredMixin, UpdateView):
             form.fields['category'].queryset = Category.objects.filter(organisation=user.agent.organisation)
 
         return form
-    
+
     def form_valid(self, form):
         category = form.save(commit=False)
         user = self.request.user
@@ -303,7 +317,7 @@ class LeadCategoryUpdateView(LoginRequiredMixin, UpdateView):
             category.organisation = user.userprofile
         else:
             category.organisation = user.agent.organisation
-        
+
         category.save()
 
         form.instance.organisation = category.organisation
@@ -336,9 +350,11 @@ class CustomPasswordChangeView(PasswordChangeView, LoginRequiredMixin):
 
 class CustomPasswordResetView(PasswordResetView):
     email_template_name = "registration/password_reset_email.html"
-    #success_url = reverse_lazy("password_reset_done")
-    template_name = "registration/password_reset_form.html"
+    #template_name = "registration/password_reset_form.html"
+    #extra_email_context = None
+    from_email = settings.EMAIL_HOST_USER
     form_class = CustomPasswordResetForm
+    success_url = reverse_lazy("password_reset_done")
 
 
 class CustomPasswordResetConfirmView(PasswordResetConfirmView):
@@ -363,11 +379,11 @@ class DocumentListView(LoginRequiredMixin, ListView):
             queryset = Document.objects.filter(organisation=user.userprofile)
         else:
             queryset = Document.objects.filter(organisation=user.agent.organisation, is_secret=False)
-        
+
         self.filterset = DocumentFilter(self.request.GET, queryset=queryset)
         return self.filterset.qs
-    
-    
+
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = self.filterset.form
@@ -385,7 +401,7 @@ class DocumentDetailView(LoginRequiredMixin, DetailView):
             queryset = Document.objects.filter(organisation=user.userprofile)
         else:
             queryset = Document.objects.filter(organisation=user.agent.organisation)
-        
+
         return queryset
 
 
@@ -406,7 +422,7 @@ class DocumentUploadView(LoginRequiredMixin, CreateView):
             form.fields['lead'].queryset = Lead.objects.filter(organisation=user.agent.organisation)
 
         return form
-    
+
     def form_valid(self, form):
         document = form.save(commit=False)
         user = self.request.user
@@ -415,7 +431,7 @@ class DocumentUploadView(LoginRequiredMixin, CreateView):
             document.organisation = user.userprofile
         else:
             document.organisation = user.agent.organisation
-        
+
         document.save()
         form.instance.organisation = document.organisation
         return super(DocumentUploadView, self).form_valid(form)
@@ -432,9 +448,9 @@ class DocumentUpdateView(LoginRequiredMixin, UpdateView):
             queryset = Document.objects.filter(organisation=user.userprofile)
         else:
             queryset = Document.objects.filter(organisation=user.agent.organisation)
-        
+
         return queryset
-    
+
     def get_form(self, form_class=UploadDocumentModelForm):
         form = super().get_form(form_class)
         user = self.request.user
@@ -445,7 +461,7 @@ class DocumentUpdateView(LoginRequiredMixin, UpdateView):
             form.fields['lead'].queryset = Lead.objects.filter(organisation=user.agent.organisation)
 
         return form
-    
+
     def form_valid(self, form):
         document = form.save(commit=False)
         user = self.request.user
@@ -454,7 +470,7 @@ class DocumentUpdateView(LoginRequiredMixin, UpdateView):
             document.organisation = user.userprofile
         else:
             document.organisation = user.agent.organisation
-        
+
         document.save()
         form.instance.organisation = document.organisation
         return super(DocumentUpdateView, self).form_valid(form)
