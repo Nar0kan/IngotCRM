@@ -15,88 +15,71 @@
         </button>
       </div>
 
-      <div class="col-span-7 hidden block w-full mx-auto md:block md:w-auto mb-2" id="navbar-dropdown">
-        <ul class="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg bg-transparent-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent-100 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          
-          <!-- Center side elements -->
+      <div class="col-span-8 hidden block w-full mx-auto md:block md:w-auto" id="navbar-dropdown">
+        <ul class="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg bg-transparent-100 md:flex-row md:space-x-6 md:mt-0 md:text-sm md:font-medium md:border-0 bg-transparent-100 dark:bg-gray-800 dark:bg-gray-900 dark:border-gray-700">
             {% if request.user.is_authenticated %}
               <li>
                 {% if request.user.is_organisor %}
-                  <a href="{% url 'agents:agent-list' %}" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Agents</a>
-                </li>
-                <li>
-                  <a href="{% url 'change_password' %}" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Change password</a>
+                  <a href="{% url 'agents:agent-list' %}" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent" aria-current="page">Agents</a>
                 </li>
                 {% else %}
-                  <button data-dropdown-toggle="dropdownProfile" id="dropdownProfileButton" data-dropdown-toggle="dropdown" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent inline-flex" type="button">
+                  <button data-dropdown-toggle="dropdownProfile" id="dropdownProfileButton" data-dropdown-toggle="dropdown" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent inline-flex" type="button">
                     Profile
                     <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                   </button>
-                  <div id="dropdownProfile" class="z-10 hidden hover:backdrop-blur-lg bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                    <ul class="py-2 text-sm text-gray-800 dark:text-gray-200" aria-labelledby="dropdownProfileButton">
-                      <li>
-                        <a href="{% url 'agents:agent-profile' request.user.id %}" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Profile</a>
-                      </li>
-                      <li>
-                        <a href="{% url 'change_password' %}" class="block text-center py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Change password</a>
-                      </li>
-                    </ul>
-                  </div>
                 {% endif %}
                 
               </li>
               <li>
-                <button data-dropdown-toggle="dropdownLeads" id="dropdownLeadsButton" data-dropdown-toggle="dropdown" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent inline-flex" type="button">
-                  Leads
-                  <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div id="dropdownLeads" class="z-10 hidden hover:backdrop-blur-lg bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                  <ul class="py-2 text-sm text-gray-800 dark:text-gray-200" aria-labelledby="dropdownLeadsButton">
-                    <li>
-                      <a href="{% url 'leads:lead-list' %}" class="block text-center px-4 bg-transparent-100 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Leads</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'leads:category-list' %}" class="block text-center px-4 bg-transparent-100 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Categories</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'leads:document-list' %}" class="block text-center px-4 bg-transparent-100 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Documents</a>
-                    </li>
-                  </ul>
-                </div>
+                <a href="{% url 'leads:lead-list' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Leads</a>
               </li>
               <li>
-                <a href="{% url 'landing-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                <a href="{% url 'leads:category-list' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Categories</a>
               </li>
               <li>
-                <a href="{% url 'about-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+                <a href="{% url 'leads:document-list' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Documents</a>
               </li>
               <li>
-                <a href="{% url 'pricing-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-              </li> 
+                <a href="{% url 'landing-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Home</a>
+              </li>
               <li>
-                <a href="{% url 'logout' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Sign out</a>
+                <a href="{% url 'about-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">About</a>
+              </li>
+              <li>
+                <a href="{% url 'pricing-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Pricing</a>
               </li>
             {% else %}
               <li>
-                <a href="{% url 'landing-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                <a href="{% url 'landing-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Home</a>
               </li>
               <li>
-                <a href="{% url 'about-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+                <a href="{% url 'about-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">About</a>
               </li>
               <li>
-                <a href="{% url 'pricing-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-              </li>
-              <li>
-                <a href="{% url 'login' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Sign in</a>
-              </li>
-              <li>
-                <a href="{% url 'register' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-200 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Register</a>
+                <a href="{% url 'pricing-page' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Pricing</a>
               </li>
             {% endif %}
         </ul>
       </div>
       <!-- Right side elements -->
-          
+      
+      <div class="col-span-7 md:col-span-2">
+        <ul class="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg bg-transparent-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 bg-transparent-100 dark:bg-gray-800 dark:bg-gray-900 dark:border-gray-700">
+          {% if request.user.is_authenticated %}
+              <li>
+                <a href="{% url 'logout' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Sign out</a>
+              </li>
+            {% else %}
+          <li>
+            <a href="{% url 'login' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Sign in</a>
+          </li>
+          <li>
+            <a href="{% url 'register' %}" class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-transparent">Register</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+
     </div>
   </nav>
 </header>
